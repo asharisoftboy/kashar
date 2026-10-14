@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>KasHar — Pengelola Keuangan Pribadi</title>
+  <meta name="description" content="KasHar — aplikasi pengelola keuangan pribadi. Catat pemasukan, pengeluaran, budget, target tabungan, dan utang. 100% offline, data tersimpan di perangkat.">
+  <meta name="theme-color" content="#0d9488">
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="KasHar">
+
+  <!-- Styling (path relatif — aman untuk GitHub Pages subpath) -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <main id="view" aria-live="polite">
+      <!-- Splash sederhana saat pertama dimuat -->
+      <div class="empty-state" style="padding-top:40vh">
+        <div class="logo-badge" style="width:64px;height:64px;font-size:32px;margin:0 auto 14px;border-radius:18px">H</div>
+        <p class="empty-title">KasHar</p>
+        <p class="muted mini">Memuat data keuanganmu...</p>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <button class="nav-item" data-route="home"><span>🏠</span>Home</button>
+      <button class="nav-item" data-route="transactions"><span>🧾</span>Transaksi</button>
+      <button class="nav-item" id="nav-add" aria-label="Tambah transaksi"><span class="fab">＋</span></button>
+      <button class="nav-item" data-route="reports"><span>📊</span>Laporan</button>
+      <button class="nav-item" data-route="account"><span>👤</span>Akun</button>
+    </nav>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" aria-live="assertive"></div>
+
+  <!-- Scripts (urutan penting: utils & db dulu, app.js terakhir) -->
+  <script src="./assets/js/utils.js"></script>
+  <script src="./assets/js/db.js"></script>
+  <script src="./assets/js/transactions.js"></script>
+  <script src="./assets/js/wallets.js"></script>
+  <script src="./assets/js/budgets.js"></script>
+  <script src="./assets/js/goals.js"></script>
+  <script src="./assets/js/debts.js"></script>
+  <script src="./assets/js/reports.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
